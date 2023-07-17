@@ -7,14 +7,26 @@ function App() {
   const [chat, setChat] = useState('')
   const [message, setMessage] = useState('')
 
-  useWebSocket('ws://localhost:3000', {
+  const { sendJsonMessage } = useWebSocket('ws://localhost:3000', {
     onOpen: () => {
       console.log('connected to server')
+    },
+    onClose: () => {
+      console.log('connection lost')
+    },
+    onError: () => {
+      console.log('server not found')
+    },
+    onMessage: event => {
+      const data = JSON.parse(event.data)
+      console.log(data)
+
+      setChat(chat + 'username: ' + data.trim() + '\n')
     }
   })
 
   const sendMessage = () => {
-    setChat(chat + 'username: ' + message.trim() + '\n')
+    sendJsonMessage(message)
     setMessage('')
   }
 
