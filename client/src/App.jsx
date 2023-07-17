@@ -1,9 +1,17 @@
 import { useState } from 'react'
+import useWebSocket from 'react-use-websocket'
+
 import './App.css'
 
 function App() {
   const [chat, setChat] = useState('')
   const [message, setMessage] = useState('')
+
+  useWebSocket('ws://localhost:3000', {
+    onOpen: () => {
+      console.log('connected to server')
+    }
+  })
 
   const sendMessage = () => {
     setChat(chat + 'username: ' + message.trim() + '\n')
