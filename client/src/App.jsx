@@ -3,7 +3,7 @@ import './App.css'
 function App() {
   return (
     <div>
-      <h1>Web Chat</h1>
+      <h1 className="text-3xl font-bold underline">Web Chat</h1>
     </div>
   )
 }
