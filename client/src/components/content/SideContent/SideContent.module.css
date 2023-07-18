@@ -1,0 +1,3 @@
+.side__content {
+  @apply col-span-1 flex flex-col justify-start;
+}

@@ -1,0 +1,8 @@
+.message_logs {
+  @apply mb-4 h-full overflow-y-scroll overflow-x-hidden
+  rounded-lg shadow-md bg-violet-900 shadow-violet-900;
+}
+
+.message_logs__items {
+  @apply flex flex-col justify-end min-h-full;
+}

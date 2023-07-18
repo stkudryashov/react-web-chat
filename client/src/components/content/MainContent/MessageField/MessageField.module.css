@@ -1,0 +1,21 @@
+.message_field {
+  @apply relative;
+}
+
+.message_field__shadow {
+  @apply absolute -inset-1 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg blur
+  opacity-25 group-hover:opacity-100 transition duration-1000 group-hover:duration-200;
+}
+
+.message_field__block {
+  @apply relative h-12 overflow-hidden bg-white ring-1 ring-gray-900/5 rounded-lg
+  leading-none flex justify-start;
+}
+
+.message_field__block__input {
+  @apply w-full h-full p-4 focus:outline-none;
+}
+
+.message_field__block__icon {
+  @apply h-6 w-6 m-2 hover:fill-pink-700;
+}

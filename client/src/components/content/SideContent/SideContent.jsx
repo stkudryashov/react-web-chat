@@ -1,8 +1,10 @@
+import styles from './SideContent.module.css'
+
 /* eslint-disable react/prop-types */
 const SideContent = ({ online, usernameRef }) => {
   return (
-    <aside className="col-span-1 rounded-lg">
-      <div className="p-2 rounded-md bg-slate-800">
+    <aside className={styles.side__content}>
+      <div className="p-2 mb-4 rounded-lg shadow-md bg-violet-900 shadow-violet-900">
         <div className="flex flex-row justify-between items-center">
           <input
             ref={usernameRef}
@@ -16,6 +18,8 @@ const SideContent = ({ online, usernameRef }) => {
           </div>
         </div>
       </div>
+
+      <div className="h-full p-2 mb-0 rounded-lg shadow-md bg-violet-900 shadow-violet-900"></div>
     </aside>
   )
 }

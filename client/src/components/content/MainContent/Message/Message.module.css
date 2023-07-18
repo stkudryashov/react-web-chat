@@ -1,0 +1,11 @@
+.message {
+  @apply flex flex-col w-fit mx-2 mb-2;
+}
+
+.message__text {
+  @apply p-2 rounded-md bg-purple-500;
+}
+
+.message__username {
+  @apply text-left text-white;
+}
