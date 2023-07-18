@@ -12,7 +12,9 @@ app.ws('/', (ws, req) => {
   console.log('new connection on')
 
   ws.on('message', msg => {
+    msg = JSON.parse(msg)
     console.log(msg)
+
     broadcastConnection(ws, msg)
   })
 
@@ -27,6 +29,7 @@ app.listen(PORT, () =>
 
 const broadcastConnection = (ws, msg) => {
   for (const client of aWss.clients) {
-    client.send(msg)
+    msg.online = aWss.clients.size
+    client.send(JSON.stringify(msg))
   }
 }
