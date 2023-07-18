@@ -1,7 +1,7 @@
 .layout {
-  @apply container py-4 mx-auto h-screen;
+  @apply container mx-auto py-4 h-screen;
 }
 
 .layout__block {
-  @apply grid grid-cols-5 rounded-md h-full bg-cyan-900;
+  @apply grid grid-cols-4 gap-4 p-4 h-full rounded-lg shadow-md bg-violet-600 shadow-violet-600;
 }

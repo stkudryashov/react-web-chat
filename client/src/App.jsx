@@ -3,16 +3,17 @@ import useWebSocket from 'react-use-websocket'
 
 import Layout from './components/layout/Layout'
 
-import SideContent from './components/content/SideContent/SideContent'
-import MainContent from './components/content/MainContent/MainContent'
+import SideContent from './components/content/SideContent'
+import MainContent from './components/content/MainContent'
 
 import './App.css'
 
 function App() {
-  const [chat, setChat] = useState('')
-  const [message, setMessage] = useState('')
+  const [chat, setChat] = useState([])
 
+  const [message, setMessage] = useState('')
   const [online, setOnline] = useState(1)
+
   const usernameRef = useRef('')
 
   const { sendJsonMessage } = useWebSocket('ws://localhost:3000', {
@@ -30,7 +31,7 @@ function App() {
       console.log(data)
 
       setOnline(data.online)
-      setChat(chat + `${data.username}: ${data.message.trim() + '\n'}`)
+      setChat([...chat, data])
     }
   })
 
@@ -46,14 +47,13 @@ function App() {
 
   return (
     <Layout>
-      <SideContent
+      <SideContent online={online} usernameRef={usernameRef} />
+      <MainContent
         message={message}
         setMessage={setMessage}
-        online={online}
-        usernameRef={usernameRef}
         sendMessage={sendMessage}
+        chat={chat}
       />
-      <MainContent chat={chat} />
     </Layout>
   )
 }
