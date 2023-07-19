@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react'
 
 import styles from './MessageLogs.module.css'
-import Message from '../Message/Message'
+import Message from './Message/Message'
 
 /* eslint-disable react/prop-types */
 const MessageLogs = ({ chat }) => {
@@ -18,8 +18,8 @@ const MessageLogs = ({ chat }) => {
   return (
     <div ref={chatWindow} className={styles.message_logs}>
       <div className={styles.message_logs__items}>
-        {chat.map((msg, index) => (
-          <Message msg={msg} key={index} />
+        {chat.map((message, index) => (
+          <Message message={message} key={index} />
         ))}
       </div>
     </div>
