@@ -9,6 +9,8 @@ import MainContent from './components/content/MainContent/MainContent'
 import { SocketService } from './services/socket.service'
 import { StorageService } from './services/storage.service'
 
+import { getRandomColor } from './utils/get-random-color'
+
 import './App.css'
 
 function App() {
@@ -36,7 +38,8 @@ function App() {
     const data = {
       message,
       username: usernameRef.current.value,
-      uuid: StorageService.getLocalItem('uuid')
+      uuid: StorageService.getLocalItem('uuid'),
+      color: getRandomColor(127)
     }
 
     sendJsonMessage(data)

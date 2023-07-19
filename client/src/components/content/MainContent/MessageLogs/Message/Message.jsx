@@ -19,7 +19,11 @@ const Message = ({ message }) => {
         )}>
         {message.username}
       </div>
-      <div className={styles.message__text}>{message.message}</div>
+      <div
+        className={styles.message__text}
+        style={{ backgroundColor: message.color }}>
+        {message.message}
+      </div>
     </div>
   )
 }
