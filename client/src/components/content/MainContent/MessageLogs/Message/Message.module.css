@@ -3,7 +3,7 @@
 }
 
 .message__text {
-  @apply p-2 rounded-md bg-purple-500;
+  @apply p-2 rounded-xl shadow-md shadow-gray-900 bg-purple-500;
 }
 
 .message__username {
