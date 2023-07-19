@@ -1,6 +1,8 @@
 import express from 'express'
 import expressWs from 'express-ws'
 
+import { logger } from './logger.js'
+
 const app = express()
 
 const wsServer = expressWs(app)
@@ -9,27 +11,27 @@ const aWss = wsServer.getWss()
 const PORT = process.env.PORT || 3000
 
 app.ws('/', (ws, req) => {
-  console.log('new connection on')
+  logger.info('new connection')
 
-  ws.on('message', msg => {
-    msg = JSON.parse(msg)
-    console.log(msg)
+  ws.on('message', message => {
+    message = JSON.parse(message)
+    logger.info(message)
 
-    broadcastConnection(ws, msg)
+    broadcastConnection(ws, message)
   })
 
   ws.on('close', () => {
-    console.log('connection lost')
+    logger.error('connection lost')
   })
 })
 
 app.listen(PORT, () =>
-  console.log(`server started on http://localhost:${PORT}`)
+  logger.info(`server started on http://localhost:${PORT}`)
 )
 
-const broadcastConnection = (ws, msg) => {
+const broadcastConnection = (ws, message) => {
   for (const client of aWss.clients) {
-    msg.online = aWss.clients.size
-    client.send(JSON.stringify(msg))
+    message.online = aWss.clients.size
+    client.send(JSON.stringify(message))
   }
 }
