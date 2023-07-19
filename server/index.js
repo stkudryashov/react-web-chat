@@ -12,6 +12,7 @@ const PORT = process.env.PORT || 3000
 
 app.ws('/', (ws, req) => {
   logger.info('new connection')
+  broadcastSendOnline()
 
   ws.on('message', message => {
     message = JSON.parse(message)
@@ -22,6 +23,7 @@ app.ws('/', (ws, req) => {
 
   ws.on('close', () => {
     logger.error('connection lost')
+    broadcastSendOnline()
   })
 })
 
@@ -31,7 +33,17 @@ app.listen(PORT, () =>
 
 const broadcastConnection = (ws, message) => {
   for (const client of aWss.clients) {
-    message.online = aWss.clients.size
     client.send(JSON.stringify(message))
+  }
+}
+
+const broadcastSendOnline = () => {
+  const data = {
+    type: 'online',
+    count: aWss.clients.size
+  }
+
+  for (const client of aWss.clients) {
+    client.send(JSON.stringify(data))
   }
 }

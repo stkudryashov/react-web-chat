@@ -27,16 +27,17 @@ function App() {
       SocketService.onMessage(event, { chat, setChat, setOnline })
     },
     onClose: () => {
-      console.log('connection lost')
+      SocketService.onClose()
     },
     onError: () => {
-      console.log('server not found')
+      SocketService.onError()
     }
   })
 
   const sendMessage = message => {
     const data = {
-      message,
+      type: 'message',
+      message: message,
       username: usernameRef.current.value,
       uuid: StorageService.getLocalItem('uuid'),
       color: getRandomColor(127)

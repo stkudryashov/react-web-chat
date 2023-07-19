@@ -21,12 +21,19 @@ export class SocketService {
     const data = JSON.parse(event.data)
     console.log(data)
 
-    const newChat = [...chat, data]
+    switch (data.type) {
+      case 'message': {
+        const newChat = [...chat, data]
+        setChat(newChat)
 
-    setOnline(data.online)
-    setChat(newChat)
-
-    StorageService.setLocalItem('chat', newChat)
+        StorageService.setLocalItem('chat', newChat)
+        break
+      }
+      case 'online': {
+        setOnline(data.count)
+        break
+      }
+    }
   }
 
   static onClose() {
