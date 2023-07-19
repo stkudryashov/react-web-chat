@@ -1,4 +1,5 @@
 import UsernameField from './UsernameField/UsernameField'
+import ClearButton from './ClearButton/ClearButton'
 
 import styles from './SideContent.module.css'
 
@@ -7,7 +8,8 @@ const SideContent = ({ online, usernameRef }) => {
   return (
     <aside className={styles.side__content}>
       <UsernameField online={online} usernameRef={usernameRef} />
-      <div className="h-full p-2 mb-0 rounded-lg shadow-md bg-violet-900 shadow-violet-900"></div>
+      <div className="h-full p-2 mb-4 rounded-lg shadow-md bg-violet-900 shadow-violet-900"></div>
+      <ClearButton />
     </aside>
   )
 }

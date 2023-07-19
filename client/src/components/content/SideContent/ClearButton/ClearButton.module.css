@@ -1,0 +1,4 @@
+.clear_button {
+  @apply p-2 mb-0 rounded-lg shadow-md bg-violet-900 shadow-violet-900
+  transition-colors ease-linear hover:bg-violet-950;
+}
