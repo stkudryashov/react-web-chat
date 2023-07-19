@@ -1,0 +1,7 @@
+.username_field {
+  @apply p-2 mb-4 rounded-lg shadow-md bg-violet-900 shadow-violet-900;
+}
+
+.username_field__block {
+  @apply flex flex-row justify-between items-center;
+}
