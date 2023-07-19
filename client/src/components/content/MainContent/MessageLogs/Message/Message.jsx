@@ -6,12 +6,12 @@ import { StorageService } from '../../../../../services/storage.service'
 /* eslint-disable react/prop-types */
 const Message = ({ message }) => {
   const isSelf = message => {
-    const uuid = StorageService.getSessionItem('uuid')
+    const uuid = StorageService.getLocalItem('uuid')
     return uuid === message.uuid ? true : false
   }
 
   return (
-    <div className={clsx(styles.message, isSelf(message) && 'self-end')}>
+    <div className={clsx(styles.message, isSelf(message) && 'self-end mr-4')}>
       <div
         className={clsx(
           styles.message__username,
