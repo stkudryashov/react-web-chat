@@ -1,10 +1,14 @@
 import { useRef, useState } from 'react'
 import useWebSocket from 'react-use-websocket'
 
+import { v4 as uuidv4 } from 'uuid'
+
 import Layout from './components/layout/Layout'
 
 import SideContent from './components/content/SideContent/SideContent'
 import MainContent from './components/content/MainContent/MainContent'
+
+import { StorageService } from './services/storage.service'
 
 import './App.css'
 
@@ -17,6 +21,7 @@ function App() {
   const { sendJsonMessage } = useWebSocket('ws://localhost:3000', {
     onOpen: () => {
       console.log('connected to server')
+      StorageService.setSessionItem('uuid', uuidv4())
     },
     onClose: () => {
       console.log('connection lost')
@@ -36,7 +41,8 @@ function App() {
   const sendMessage = message => {
     const data = {
       message,
-      username: usernameRef.current.value
+      username: usernameRef.current.value,
+      uuid: StorageService.getSessionItem('uuid')
     }
 
     sendJsonMessage(data)
