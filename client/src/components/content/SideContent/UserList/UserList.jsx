@@ -1,9 +1,9 @@
-import UserCard from './UserCard/UserCard'
+import { UserCard } from './UserCard/UserCard'
 
 import styles from './UserList.module.css'
 
 /* eslint-disable react/prop-types */
-const UserList = ({ online }) => {
+export const UserList = ({ online }) => {
   return (
     <div className={styles.user_list}>
       {online.map(userInfo => (
@@ -14,5 +14,3 @@ const UserList = ({ online }) => {
     </div>
   )
 }
-
-export default UserList

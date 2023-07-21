@@ -1,10 +1,11 @@
-import clsx from 'clsx'
+import { clsx } from 'clsx'
+
+import { StorageService } from 'src/services/storage.service'
 
 import styles from './Message.module.css'
-import { StorageService } from '../../../../../services/storage.service'
 
 /* eslint-disable react/prop-types */
-const Message = ({ message }) => {
+export const Message = ({ message }) => {
   const isSelf = () => {
     const uuid = StorageService.getLocalItem('user').uuid
     return uuid === message.uuid ? true : false
@@ -27,5 +28,3 @@ const Message = ({ message }) => {
     </div>
   )
 }
-
-export default Message

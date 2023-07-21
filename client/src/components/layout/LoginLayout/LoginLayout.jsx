@@ -1,10 +1,11 @@
 import { useRef } from 'react'
-import Rainbow from '../../custom/Rainbow/Rainbow'
+
+import { Rainbow } from 'src/components/custom/Rainbow/Rainbow'
 
 import styles from './LoginLayout.module.css'
 
 /* eslint-disable react/prop-types */
-const LoginLayout = ({ onLogin }) => {
+export const LoginLayout = ({ onLogin }) => {
   const usernameRef = useRef()
 
   return (
@@ -32,5 +33,3 @@ const LoginLayout = ({ onLogin }) => {
     </div>
   )
 }
-
-export default LoginLayout

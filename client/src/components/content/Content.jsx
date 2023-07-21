@@ -1,14 +1,15 @@
-import SideContent from './SideContent/SideContent'
-import MainContent from './MainContent/MainContent'
+import { SideContent } from './SideContent/SideContent'
+import { MainContent } from './MainContent/MainContent'
 
-import { SocketService } from '../../services/socket.service'
-import { StorageService } from '../../services/storage.service'
+import { SocketService } from 'src/services/socket.service'
+import { StorageService } from 'src/services/storage.service'
 
-import { getRandomColor } from '../../utils/get-random-color'
+import { getRandomColor } from 'src/utils/get-random-color'
+
 import { useState } from 'react'
 import { useWebSocket } from 'react-use-websocket/dist/lib/use-websocket'
 
-const Content = () => {
+export const Content = () => {
   const [chat, setChat] = useState([])
   const [online, setOnline] = useState([])
 
@@ -61,5 +62,3 @@ const Content = () => {
     </>
   )
 }
-
-export default Content

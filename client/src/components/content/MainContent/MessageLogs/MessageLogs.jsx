@@ -1,10 +1,11 @@
+import { Message } from './Message/Message'
+
 import { useEffect, useRef } from 'react'
 
 import styles from './MessageLogs.module.css'
-import Message from './Message/Message'
 
 /* eslint-disable react/prop-types */
-const MessageLogs = ({ chat }) => {
+export const MessageLogs = ({ chat }) => {
   const chatWindow = useRef('')
 
   useEffect(() => {
@@ -25,5 +26,3 @@ const MessageLogs = ({ chat }) => {
     </div>
   )
 }
-
-export default MessageLogs

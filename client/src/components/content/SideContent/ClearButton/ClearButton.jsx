@@ -1,9 +1,9 @@
-import { StorageService } from '../../../../services/storage.service'
+import { StorageService } from 'src/services/storage.service'
 
 import styles from './ClearButton.module.css'
 
 /* eslint-disable react/prop-types */
-const ClearButton = () => {
+export const ClearButton = () => {
   const clearLocalChat = () => {
     StorageService.clearLocalStorage()
     window.location.reload()
@@ -15,5 +15,3 @@ const ClearButton = () => {
     </div>
   )
 }
-
-export default ClearButton

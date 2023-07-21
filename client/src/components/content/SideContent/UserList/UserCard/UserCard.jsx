@@ -1,10 +1,11 @@
-import { TbWriting } from 'react-icons/tb'
 import { clsx } from 'clsx'
+
+import { TbWriting } from 'react-icons/tb'
 
 import styles from './UserCard.module.css'
 
 /* eslint-disable react/prop-types */
-const UserCard = ({ username, uuid }) => {
+export const UserCard = ({ username, uuid }) => {
   return (
     <div className={styles.user_card}>
       <div>{username}</div>
@@ -12,5 +13,3 @@ const UserCard = ({ username, uuid }) => {
     </div>
   )
 }
-
-export default UserCard

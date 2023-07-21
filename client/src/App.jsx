@@ -1,5 +1,5 @@
-import Layout from './components/layout/Layout'
-import Content from './components/content/Content'
+import { Layout } from './components/layout/Layout'
+import { Content } from './components/content/Content'
 
 import './App.css'
 

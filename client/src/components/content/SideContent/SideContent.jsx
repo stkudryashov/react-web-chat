@@ -1,10 +1,10 @@
-import ClearButton from './ClearButton/ClearButton'
+import { ClearButton } from './ClearButton/ClearButton'
+import { UserList } from './UserList/UserList'
 
 import styles from './SideContent.module.css'
-import UserList from './UserList/UserList'
 
 /* eslint-disable react/prop-types */
-const SideContent = ({ online }) => {
+export const SideContent = ({ online }) => {
   return (
     <aside className={styles.side__content}>
       <ClearButton />
@@ -12,5 +12,3 @@ const SideContent = ({ online }) => {
     </aside>
   )
 }
-
-export default SideContent

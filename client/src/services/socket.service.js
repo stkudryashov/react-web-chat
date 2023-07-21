@@ -1,6 +1,5 @@
-import { StorageService } from './storage.service'
-
-import { writing } from '../components/content/SideContent/UserList/UserCard/UserCard.module.css'
+import { writing } from 'src/components/content/SideContent/UserList/UserCard/UserCard.module.css'
+import { StorageService } from 'src/services/storage.service'
 
 export class SocketService {
   constructor() {}
@@ -23,13 +22,15 @@ export class SocketService {
     switch (data.type) {
       case 'message': {
         const newChat = [...chat, data]
-        setChat(newChat)
 
+        setChat(newChat)
         StorageService.setLocalItem('chat', newChat)
+
         break
       }
       case 'online': {
         setOnline(data.users)
+
         break
       }
       case 'writing': {

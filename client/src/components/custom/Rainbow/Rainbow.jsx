@@ -1,9 +1,9 @@
-import clsx from 'clsx'
+import { clsx } from 'clsx'
 
 import styles from './Rainbow.module.css'
 
 /* eslint-disable react/prop-types */
-const Rainbow = ({ children }) => {
+export const Rainbow = ({ children }) => {
   return (
     <div className="relative group">
       <div
@@ -15,5 +15,3 @@ const Rainbow = ({ children }) => {
     </div>
   )
 }
-
-export default Rainbow

@@ -1,10 +1,10 @@
-import MessageField from './MessageField/MessageField'
-import MessageLogs from './MessageLogs/MessageLogs'
+import { MessageField } from './MessageField/MessageField'
+import { MessageLogs } from './MessageLogs/MessageLogs'
 
 import styles from './MainContent.module.css'
 
 /* eslint-disable react/prop-types */
-const MainContent = ({ chat, sendMessage }) => {
+export const MainContent = ({ chat, sendMessage }) => {
   return (
     <main className={styles.main__content}>
       <MessageLogs chat={chat} />
@@ -13,5 +13,3 @@ const MainContent = ({ chat, sendMessage }) => {
     </main>
   )
 }
-
-export default MainContent

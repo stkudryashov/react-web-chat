@@ -1,12 +1,13 @@
-import { useCallback, useMemo, useState } from 'react'
+import { Rainbow } from 'src/components/custom/Rainbow/Rainbow'
+import { throttle } from 'src/utils/throttle'
+
+import { useCallback, useState } from 'react'
 import { BiSend } from 'react-icons/bi'
 
 import styles from './MessageField.module.css'
-import Rainbow from '../../../custom/Rainbow/Rainbow'
-import { throttle } from '../../../../utils/throttle'
 
 /* eslint-disable react/prop-types */
-const MessageField = ({ sendMessage }) => {
+export const MessageField = ({ sendMessage }) => {
   const [text, setText] = useState('')
 
   const send = () => {
@@ -44,5 +45,3 @@ const MessageField = ({ sendMessage }) => {
     </Rainbow>
   )
 }
-
-export default MessageField
