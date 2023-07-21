@@ -8,7 +8,7 @@ const UserList = ({ online }) => {
     <div className={styles.user_list}>
       {online.map(userInfo => (
         <div className="mb-2" key={userInfo.uuid}>
-          <UserCard username={userInfo.username} />
+          <UserCard username={userInfo.username} uuid={userInfo.uuid} />
         </div>
       ))}
     </div>

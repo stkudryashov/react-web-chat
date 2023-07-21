@@ -1,8 +1,9 @@
-import { useState } from 'react'
+import { useCallback, useMemo, useState } from 'react'
 import { BiSend } from 'react-icons/bi'
 
 import styles from './MessageField.module.css'
 import Rainbow from '../../../custom/Rainbow/Rainbow'
+import { throttle } from '../../../../utils/throttle'
 
 /* eslint-disable react/prop-types */
 const MessageField = ({ sendMessage }) => {
@@ -13,6 +14,12 @@ const MessageField = ({ sendMessage }) => {
     setText('')
   }
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const throttleInput = useCallback(
+    throttle(() => sendMessage(), 2000),
+    []
+  )
+
   return (
     <Rainbow>
       <div className="flex justify-start">
@@ -21,7 +28,7 @@ const MessageField = ({ sendMessage }) => {
           onChange={e => {
             if (e.target.value !== '\n') {
               setText(e.target.value)
-              sendMessage() // writing
+              throttleInput() // writing
             }
           }}
           onKeyDown={e => {

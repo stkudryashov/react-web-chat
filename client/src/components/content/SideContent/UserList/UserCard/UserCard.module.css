@@ -1,4 +1,20 @@
 .user_card {
-  @apply flex justify-between items-center py-2 px-4 h-12 rounded-lg shadow-md
+  @apply flex justify-between items-center py-2 px-4 h-12 rounded-lg shadow-md animate-none
   shadow-gray-900 bg-violet-600 hover:shadow-none transition-shadow ease-linear;
+}
+
+.writing {
+  animation: ping-pong 1s infinite ease-in-out alternate;
+}
+
+@keyframes ping-pong {
+  from {
+    transform: translateX(0);
+    color: black;
+  }
+
+  to {
+    transform: translateX(-12px);
+    color: greenyellow;
+  }
 }

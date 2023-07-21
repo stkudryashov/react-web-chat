@@ -3,6 +3,6 @@
 }
 
 .layout__content {
-  @apply grid grid-cols-4 gap-4 p-4 h-full overflow-hidden
+  @apply grid grid-cols-3 gap-4 p-4 h-full overflow-hidden
   rounded-lg shadow-md bg-violet-600 shadow-violet-600;
 }

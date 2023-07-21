@@ -1,5 +1,7 @@
 import { StorageService } from './storage.service'
 
+import { writing } from '../components/content/SideContent/UserList/UserCard/UserCard.module.css'
+
 export class SocketService {
   constructor() {}
 
@@ -31,16 +33,13 @@ export class SocketService {
         break
       }
       case 'writing': {
-        const showWriting = () => {
-          let timeoutId
+        const userCardSVG = document.getElementById(`${data.uuid}`)
+        userCardSVG.classList.add(writing)
 
-          return () => {
-            clearTimeout(timeoutId)
-            timeoutId = setTimeout(() => {}, 1000)
-          }
-        }
+        setTimeout(() => {
+          userCardSVG.classList.remove(writing)
+        }, 2000)
 
-        showWriting()()
         break
       }
     }
