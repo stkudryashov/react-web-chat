@@ -15,20 +15,25 @@ const MessageField = ({ sendMessage }) => {
 
   return (
     <Rainbow>
-      <input
-        value={text}
-        onChange={e => {
-          if (e.target.value !== '\n') setText(e.target.value)
-        }}
-        onKeyDown={e => {
-          if (e.key === 'Enter') send()
-        }}
-        placeholder="message"
-        className={styles.message_field__input}
-      />
-      <button onClick={() => send()}>
-        <BiSend className={styles.message_field__icon} />
-      </button>
+      <div className="flex justify-start">
+        <input
+          value={text}
+          onChange={e => {
+            if (e.target.value !== '\n') {
+              setText(e.target.value)
+              sendMessage() // writing
+            }
+          }}
+          onKeyDown={e => {
+            if (e.key === 'Enter') send()
+          }}
+          placeholder="message"
+          className={styles.message_field__input}
+        />
+        <button onClick={() => send()}>
+          <BiSend className={styles.message_field__icon} />
+        </button>
+      </div>
     </Rainbow>
   )
 }

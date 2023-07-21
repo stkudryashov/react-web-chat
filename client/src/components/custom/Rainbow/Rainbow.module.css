@@ -5,5 +5,5 @@
 
 .rainbow__block {
   @apply relative overflow-hidden bg-white ring-1 ring-gray-900/5 rounded-lg
-  leading-none flex justify-start;
+  leading-none;
 }

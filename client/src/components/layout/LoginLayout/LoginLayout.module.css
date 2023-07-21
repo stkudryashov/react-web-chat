@@ -1,0 +1,15 @@
+.login_layout {
+  @apply p-2 w-full rounded-lg shadow-md bg-violet-600 shadow-violet-600;
+}
+
+.login_layout__block {
+  @apply flex flex-col justify-center items-center;
+}
+
+.login_layout__input {
+  @apply h-10 p-2 text-center rounded-md focus:outline-none;
+}
+
+.login_layout__button {
+  @apply h-10 w-full rounded-lg shadow-sm shadow-violet-900 bg-violet-900 hover:bg-violet-400 transition-colors ease-linear;
+}

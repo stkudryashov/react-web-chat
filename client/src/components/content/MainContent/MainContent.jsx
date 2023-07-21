@@ -4,7 +4,7 @@ import MessageLogs from './MessageLogs/MessageLogs'
 import styles from './MainContent.module.css'
 
 /* eslint-disable react/prop-types */
-const MainWindow = ({ chat, sendMessage }) => {
+const MainContent = ({ chat, sendMessage }) => {
   return (
     <main className={styles.main__content}>
       <MessageLogs chat={chat} />
@@ -14,4 +14,4 @@ const MainWindow = ({ chat, sendMessage }) => {
   )
 }
 
-export default MainWindow
+export default MainContent

@@ -1,0 +1,4 @@
+.user_card {
+  @apply flex justify-between items-center py-2 px-4 h-12 rounded-lg shadow-md
+  shadow-gray-900 bg-violet-600 hover:shadow-none transition-shadow ease-linear;
+}

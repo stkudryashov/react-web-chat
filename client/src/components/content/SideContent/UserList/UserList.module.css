@@ -1,0 +1,3 @@
+.user_list {
+  @apply h-full p-2 rounded-lg shadow-md bg-violet-900 shadow-violet-900;
+}

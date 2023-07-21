@@ -6,11 +6,12 @@ import styles from './ClearButton.module.css'
 const ClearButton = () => {
   const clearLocalChat = () => {
     StorageService.clearLocalStorage()
+    window.location.reload()
   }
 
   return (
     <div onClick={clearLocalChat} className={styles.clear_button}>
-      clear
+      logout
     </div>
   )
 }
