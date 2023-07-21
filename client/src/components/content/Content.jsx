@@ -38,7 +38,7 @@ const Content = () => {
         type: 'message',
         message: message,
         username: user.username,
-        uuid: StorageService.getLocalItem('uuid'),
+        uuid: user.uuid,
         color: getRandomColor(127)
       }
 

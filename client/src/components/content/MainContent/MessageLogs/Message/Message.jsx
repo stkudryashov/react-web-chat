@@ -6,7 +6,7 @@ import { StorageService } from '../../../../../services/storage.service'
 /* eslint-disable react/prop-types */
 const Message = ({ message }) => {
   const isSelf = () => {
-    const uuid = StorageService.getLocalItem('uuid')
+    const uuid = StorageService.getLocalItem('user').uuid
     return uuid === message.uuid ? true : false
   }
 
