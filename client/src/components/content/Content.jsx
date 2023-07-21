@@ -16,7 +16,7 @@ export const Content = () => {
   const [user] = useState(StorageService.getLocalItem('user'))
 
   const { sendJsonMessage } = useWebSocket(
-    `ws://localhost:3000/?username=${user.username}&uuid=${user.uuid}`,
+    `ws://176.99.12.13:3000/?username=${user.username}&uuid=${user.uuid}`,
     {
       onOpen: () => {
         SocketService.onOpen({ setChat })
